@@ -1,8 +1,11 @@
 package com.company.restaurants.search.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.company.restaurants.search.domain.categoryInfoDTO;
 import com.company.restaurants.search.domain.restaurantsDTO;
 import com.company.restaurants.search.mapper.searchMapper;
 
@@ -11,7 +14,11 @@ public class searchService {
 	@Autowired
 	private searchMapper searchMapper;
 	
-	public restaurantsDTO restaurantsList(restaurantsDTO restaurantsparam) throws Exception {
+	public List<restaurantsDTO> restaurantsList(restaurantsDTO restaurantsparam) throws Exception {
 		return this.searchMapper.restaurantsList(restaurantsparam);
+	}
+	
+	public List<categoryInfoDTO> categoryInfo() throws Exception {
+		return this.searchMapper.categoryInfo();
 	}
 }
