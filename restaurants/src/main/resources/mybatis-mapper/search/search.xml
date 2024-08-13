@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.company.restaurants.search.mapper.searchMapper">
 	<select id="restaurantsList" resultType="com.company.restaurants.search.domain.restaurantsDTO" parameterType="com.company.restaurants.search.domain.restaurantsDTO" >
-		SELECT * FROM restaurants WHERE 
+		SELECT * FROM restaurants
 	</select>	
 	
 	<select id="categoryInfo" resultType="com.company.restaurants.search.domain.categoryInfoDTO" parameterType="com.company.restaurants.search.domain.restaurantsDTO" >

@@ -10,7 +10,8 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -26,13 +27,13 @@ public class searchController {
 	@Autowired
 	private searchService searchService;
 	
-	@GetMapping("/restaurantsList/{categoryCode}/{xLocation}/{yLocation}/{keyword}")
-	public ResponseEntity<?> restaurantsList(HttpServletRequest req, Model model,@PathVariable restaurantsDTO restaurantsDTO) throws Exception {
-		List<restaurantsDTO> restaurantsList = searchService.restaurantsList(restaurantsDTO);
-		
-		HttpHeaders headers = new HttpHeaders();
-		headers.setContentType(new MediaType("application", "json", Charset.forName("UTF-8")));
-		return new ResponseEntity<>("", headers, HttpStatus.OK);
+	@PostMapping("/restaurantsList")
+	public ResponseEntity<?> restaurantsList(HttpServletRequest req, Model model, @RequestBody restaurantsDTO restaurantsDTO) throws Exception {
+	    List<restaurantsDTO> restaurantsList = searchService.restaurantsList(restaurantsDTO);
+	    
+	    HttpHeaders headers = new HttpHeaders();
+	    headers.setContentType(new MediaType("application", "json", Charset.forName("UTF-8")));
+	    return new ResponseEntity<>(restaurantsList, headers, HttpStatus.OK);
 	}
 	
 	@GetMapping("/categoryInfo")
