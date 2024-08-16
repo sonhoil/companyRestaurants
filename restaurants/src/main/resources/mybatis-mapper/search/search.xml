@@ -3,6 +3,8 @@
 <mapper namespace="com.company.restaurants.search.mapper.searchMapper">
 	<select id="restaurantsList" resultType="com.company.restaurants.search.domain.restaurantsDTO" parameterType="com.company.restaurants.search.domain.restaurantsDTO" >
 		SELECT * FROM restaurants
+		WHERE xLocation BETWEEN #{minXLocation} AND #{maxXLocation}
+  		AND yLocation BETWEEN #{minYLocation} AND #{maxYXLocation}
 	</select>	
 	
 	<select id="categoryInfo" resultType="com.company.restaurants.search.domain.categoryInfoDTO" parameterType="com.company.restaurants.search.domain.restaurantsDTO" >
