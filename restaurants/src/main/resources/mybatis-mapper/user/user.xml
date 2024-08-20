@@ -2,14 +2,15 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.company.restaurants.user.mapper.userMapper">
 	<select id="checkUser" resultType="Integer" parameterType="com.company.restaurants.user.domain.userInfoDTO" >
-		SELECT * FROM user
+		SELECT COUNT(*) FROM userInfo WHERE email = #{email}
 	</select>	
 	
 	<insert id="userRegist" parameterType="com.company.restaurants.user.domain.userInfoDTO" >
-		SELECT * FROM user
+		INSERT INTO userInfo (userCode,email,nickName,password,companyCode)
+					VALUES (#{userCode},#{email},#{nickName},#{password},#{companyCode})
 	</insert>	
 	
 	<select id="companyList" resultType="com.company.restaurants.user.domain.companyInfoDTO" parameterType="com.company.restaurants.user.domain.userInfoDTO" >
-		SELECT * FROM company
+		SELECT * FROM company WHERE name LIKE CONCAT('%',#{name},'%')
 	</select>	
 </mapper>
