@@ -4,6 +4,7 @@ import lombok.Data;
 
 @Data
 public class userInfoDTO {
+	private String userCode;
 	private String restaurantsCode;
 	private String categoryCode;
 	private String xLocation;

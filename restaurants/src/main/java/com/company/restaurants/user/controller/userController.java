@@ -2,6 +2,7 @@ package com.company.restaurants.user.controller;
 
 import java.nio.charset.Charset;
 import java.util.List;
+import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
@@ -50,6 +51,16 @@ public class userController {
 	@GetMapping("/companyList/{keyWord}")
 	public ResponseEntity<?> companyList(HttpServletRequest req, Model model, @PathVariable String keyWord) throws Exception {
 		List<companyInfoDTO> companyList = userService.companyList(keyWord);
+		
+		HttpHeaders headers = new HttpHeaders();
+		headers.setContentType(new MediaType("application", "json", Charset.forName("UTF-8")));
+		return new ResponseEntity<>("", headers, HttpStatus.OK);
+	}
+	
+	@PutMapping("/companyRegist")
+	public ResponseEntity<?> companyRegist(HttpServletRequest req, Model model,@PathVariable companyInfoDTO companyInfoDTO) {
+		
+		int companyRegist = userService.companyRegist(companyInfoDTO);
 		
 		HttpHeaders headers = new HttpHeaders();
 		headers.setContentType(new MediaType("application", "json", Charset.forName("UTF-8")));

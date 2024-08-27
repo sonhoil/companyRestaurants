@@ -11,6 +11,11 @@
 	</insert>	
 	
 	<select id="companyList" resultType="com.company.restaurants.user.domain.companyInfoDTO" parameterType="com.company.restaurants.user.domain.userInfoDTO" >
-		SELECT * FROM company WHERE name LIKE CONCAT('%',#{name},'%')
-	</select>	
+		SELECT * FROM companyInfo WHERE name LIKE CONCAT('%',#{name},'%')
+	</select>
+	
+	<insert id="companyRegist" parameterType="com.company.restaurants.user.domain.companyInfoDTO" >
+		INSERT INTO companyInfo (companyCode,name,domain)
+					VALUES (#{companyCode},#{name},#{domain})
+	</insert>	
 </mapper>
