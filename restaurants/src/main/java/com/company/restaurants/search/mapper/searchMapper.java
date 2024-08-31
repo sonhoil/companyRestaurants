@@ -13,5 +13,5 @@ public interface searchMapper {
 
 	public List<restaurantsDTO> restaurantsList(restaurantsDTO restaurantsparam);
 	public List<categoryInfoDTO> categoryInfo();
-	public int restaurantsRegist(restaurantsDTO restaurantsDTO);
+	
 }

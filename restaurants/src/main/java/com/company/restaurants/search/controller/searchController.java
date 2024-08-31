@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.company.restaurants.common.api.naverSearchApi;
 import com.company.restaurants.search.domain.categoryInfoDTO;
 import com.company.restaurants.search.domain.restaurantsDTO;
 import com.company.restaurants.search.service.searchService;
@@ -39,6 +40,15 @@ public class searchController {
 	@GetMapping("/categoryInfo")
 	public ResponseEntity<?> categoryInfo(HttpServletRequest req, Model model) throws Exception {
 		List<categoryInfoDTO> categoryInfo = searchService.categoryInfo();
+		
+		HttpHeaders headers = new HttpHeaders();
+		headers.setContentType(new MediaType("application", "json", Charset.forName("UTF-8")));
+		return new ResponseEntity<>("", headers, HttpStatus.OK);
+	}
+	
+	@GetMapping("/naverapiTest")
+	public ResponseEntity<?> naverapiTest(HttpServletRequest req, Model model) throws Exception {
+		naverSearchApi.naverRestaurantSearch();
 		
 		HttpHeaders headers = new HttpHeaders();
 		headers.setContentType(new MediaType("application", "json", Charset.forName("UTF-8")));

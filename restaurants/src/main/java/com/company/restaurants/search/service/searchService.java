@@ -24,9 +24,5 @@ public class searchService {
 		return this.searchMapper.categoryInfo();
 	}
 	
-	public int restaurantsRegist(restaurantsDTO restaurantsDTO) {
-		String restaurantsCode = UUID.randomUUID().toString();
-		restaurantsDTO.setRestaurantsCode(restaurantsCode);
-		return this.searchMapper.restaurantsRegist(restaurantsDTO);
-	}
+	
 }

@@ -13,9 +13,5 @@
 	<select id="categoryInfo" resultType="com.company.restaurants.search.domain.categoryInfoDTO" parameterType="com.company.restaurants.search.domain.restaurantsDTO" >
 		SELECT * FROM categoryInfo
 	</select>
-	
-	<insert id="restaurantsRegist" parameterType="com.company.restaurants.search.domain.restaurantsDTO" >
-		INSERT INTO restaurants (restaurantsCode, name, location, address, category, explain, phone, xLocation, yLocation)
-		VALUES(#{restaurantsCode}, #{name}, #{location}, #{address}, #{category}, #{explain}, #{phone}, #{xLocation}, #{yLocation});
-	</insert>
+
 </mapper>
