@@ -10,6 +10,7 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -46,12 +47,12 @@ public class searchController {
 		return new ResponseEntity<>("", headers, HttpStatus.OK);
 	}
 	
-	@GetMapping("/naverapiTest")
-	public ResponseEntity<?> naverapiTest(HttpServletRequest req, Model model) throws Exception {
-		naverSearchApi.naverRestaurantSearch();
+	@GetMapping("/naverapiTest/{keyWord}")
+	public ResponseEntity<?> naverapiTest(HttpServletRequest req, Model model, @PathVariable String keyWord) throws Exception {
+		String searchData = naverSearchApi.naverRestaurantSearch(keyWord);
 		
 		HttpHeaders headers = new HttpHeaders();
 		headers.setContentType(new MediaType("application", "json", Charset.forName("UTF-8")));
-		return new ResponseEntity<>("", headers, HttpStatus.OK);
+		return new ResponseEntity<>(searchData, headers, HttpStatus.OK);
 	}
 }
