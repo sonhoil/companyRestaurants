@@ -36,7 +36,7 @@ public class naverSearchApi {
 		
         String text = null;
         try {
-            text = URLEncoder.encode(searchText+" 음식점", "UTF-8");
+            text = URLEncoder.encode(searchText+" 여의도 음식점", "UTF-8");
         } catch (UnsupportedEncodingException e) {
             throw new RuntimeException("검색어 인코딩 실패",e);
         }
