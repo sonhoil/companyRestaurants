@@ -1,6 +1,7 @@
 package com.company.restaurants.user.service;
 
 import java.util.List;
+import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,10 +21,18 @@ public class userService {
 	}
 	
 	public int userRegist(userInfoDTO userInfoDTO) {
+		String userCode = UUID.randomUUID().toString();
+		userInfoDTO.setUserCode(userCode);
 		return this.userMapper.userRegist(userInfoDTO);
 	}
 	
 	public List<companyInfoDTO> companyList(String keyWord) throws Exception {
 		return this.userMapper.companyList(keyWord);
+	}
+	
+	public int companyRegist(companyInfoDTO companyInfoDTO) {
+		String companyCode = UUID.randomUUID().toString();
+	    companyInfoDTO.setCompanyCode(companyCode);
+		return this.userMapper.companyRegist(companyInfoDTO);
 	}
 }

@@ -1,8 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.company.restaurants.review.mapper.reviewMapper">
-	<select id="restaurantsList" resultType="com.company.restaurants.search.domain.restaurantsDTO" parameterType="com.company.restaurants.search.domain.restaurantsDTO" >
-		SELECT * FROM restaurants
+	<select id="restaurantsReviewList" resultType="com.company.restaurants.review.domain.reviewDTO" parameterType="com.company.restaurants.search.domain.restaurantsDTO" >
+		SELECT * FROM review WHERE restaurantsCode = #{restaurantsCode} AND useYN = 'Y'
 	</select>	
-	
+	<insert id="reviewWrite"  parameterType="com.company.restaurants.review.domain.reviewDTO" >
+		INSERT INTO review (reviewCode,restaurantsCode,userCode,content,rate,useYN,CDATE)
+					VALUES (#{reviewCode},#{restaurantsCode},#{userCode},#{content},#{rate},'Y',getDate())
+	</insert>
+	<update id="reviewUpdate"  parameterType="com.company.restaurants.review.domain.reviewDTO" >
+		UPDATE review SET content = #{content}, UDATE = getDate() WHERE reviewCode = #{reviewCode}
+	</update>
+	<delete id="reviewDelete"  parameterType="com.company.restaurants.review.domain.reviewDTO" >
+		UPDATE review SET useYN ='N' WHERE reviewCode = #{reviewCode}
+	</delete>
 </mapper>

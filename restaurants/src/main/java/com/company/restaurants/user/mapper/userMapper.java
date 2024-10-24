@@ -15,4 +15,6 @@ public interface userMapper {
 	public int userRegist(userInfoDTO userInfoDTO);
 	
 	public List<companyInfoDTO> companyList(String keyWord);
+	
+	public int companyRegist(companyInfoDTO companyInfoDTO);
 }
