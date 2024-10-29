@@ -1,42 +1,40 @@
-🍽️ Company Restaurants - Backend Service
+# 🍽️ Company Restaurants - Backend Service
 
 This project is a backend service for managing cafeteria and restaurant information for companies, allowing users to search, register, and review both corporate cafeterias and general restaurants.
 
 이 프로젝트는 회사 내 구내식당과 일반 식당 정보를 관리하기 위한 백엔드 서비스입니다. 사용자는 구내식당과 일반 식당을 검색, 등록, 리뷰할 수 있습니다.
 
-✨ Features (기능)
+## ✨ Features (기능)
 
-🍱 Cafeteria Management (구내식당 관리)
+| Feature                    | Description (기능 설명)                                         |
+|----------------------------|----------------------------------------------------------------|
+| 🍱 **Register Cafeteria**   | 시스템에 새로운 구내식당을 추가합니다.                           |
+| **Weekly Menu Registration** | 구내식당은 아침, 점심, 저녁 옵션이 포함된 여러 주간 메뉴를 등록할 수 있습니다. |
+| **Search Cafeterias**       | 사용자는 위치 또는 이름과 위치 기준으로 가까운 구내식당을 검색할 수 있습니다.   |
+| **Favorite Cafeteria**      | 사용자는 구내식당을 즐겨찾기에 추가할 수 있습니다.               |
+| **Review Menus**           | 사용자는 특정 메뉴에 대한 리뷰와 평점을 남길 수 있으며, 구내식당에서 100미터 이내에 있어야 합니다. |
+| **Like Menu Items**        | 사용자는 구내식당의 주간 메뉴에서 특정 항목에 좋아요를 누를 수 있습니다. |
 
-Register Cafeteria (구내식당 등록): 시스템에 새로운 구내식당을 추가합니다.
+| Restaurant Feature            | Description (기능 설명)                                         |
+|-------------------------------|----------------------------------------------------------------|
+| 🍽️ **Register Restaurant**    | 시스템에 새로운 일반 식당을 추가합니다.                         |
+| **Register Restaurant Menu**  | 일반 식당은 제공하는 메뉴 항목을 등록할 수 있습니다.             |
+| **Search Restaurants**        | 사용자는 위치, 이름 등의 기준으로 식당을 검색할 수 있습니다.     |
+| **Like Restaurant Menu Items** | 사용자는 일반 식당의 메뉴 항목에 좋아요를 누를 수 있습니다.       |
 
-Weekly Menu Registration (주간 메뉴 등록): 구내식당은 아침, 점심, 저녁 옵션이 포함된 여러 주간 메뉴를 등록할 수 있습니다.
+| 🔍 Combined Search (통합 검색)    | Description (기능 설명)                                         |
+|---------------------------------|----------------------------------------------------------------|
+| **Search All Restaurants and Cafeterias** | 사용자는 일반 식당과 구내식당을 동시에 검색할 수 있으며, 두 종류의 시설을 명확히 구분하여 표시합니다. |
 
-Search Cafeterias (구내식당 검색): 사용자는 위치 또는 이름과 위치 기준으로 가까운 구내식당을 검색할 수 있습니다.
+## 🛠️ Technologies Used (사용된 기술 스택)
 
-Favorite Cafeteria (즐겨찾기 추가): 사용자는 구내식당을 즐겨찾기에 추가할 수 있습니다.
+| Technology     | Badge                                                                                      |
+|----------------|--------------------------------------------------------------------------------------------|
+| Java           | ![Java](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=java&logoColor=white) |
+| Spring Boot    | ![Spring Boot](https://img.shields.io/badge/Spring_Boot-6DB33F?style=for-the-badge&logo=spring-boot&logoColor=white) |
+| MyBatis        | ![MyBatis](https://img.shields.io/badge/MyBatis-000000?style=for-the-badge&logo=databricks&logoColor=white) |
+| Lombok         | ![Lombok](https://img.shields.io/badge/Lombok-45b8d8?style=for-the-badge&logo=lombok&logoColor=white) |
 
-Review Menus (메뉴 리뷰): 사용자는 특정 메뉴에 대한 리뷰와 평점을 남길 수 있으며, 구내식당에서 100미터 이내에 있어야 합니다.
-
-Like Menu Items (메뉴 좋아요): 사용자는 구내식당의 주간 메뉴에서 특정 항목에 좋아요를 누를 수 있습니다.
-
-🍽️ Restaurant Management (일반 식당 관리)
-
-Register Restaurant (일반 식당 등록): 시스템에 새로운 일반 식당을 추가합니다.
-
-Register Restaurant Menu (식당 메뉴 등록): 일반 식당은 제공하는 메뉴 항목을 등록할 수 있습니다.
-
-Search Restaurants (일반 식당 검색): 사용자는 위치, 이름 등의 기준으로 식당을 검색할 수 있습니다.
-
-Like Restaurant Menu Items (식당 메뉴 좋아요): 사용자는 일반 식당의 메뉴 항목에 좋아요를 누를 수 있습니다.
-
-🔍 Combined Search (통합 검색)
-
-Search All Restaurants and Cafeterias (모든 식당 및 구내식당 검색): 사용자는 일반 식당과 구내식당을 동시에 검색할 수 있으며, 두 종류의 시설을 명확히 구분하여 표시합니다.
-
-🛠️ Technologies Used (사용된 기술 스택)
-
-![Java](https://img.shields.io/badge/Java-%23ED8B00.svg?style=flat-square&logo=openjdk&logoColor=white) ![Spring Boot](https://img.shields.io/badge/Spring%20Boot-6DB33F?style=flat-square&logo=spring-boot&logoColor=white) ![React](https://img.shields.io/badge/React-20232A?style=flat-square&logo=react&logoColor=61DAFB) ![MyBatis](https://img.shields.io/badge/MyBatis-000000.svg?style=flat-square&logo=MyBatis&logoColor=white) 
 
 
 📡 API Endpoints (API 엔드포인트)
