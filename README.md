@@ -34,14 +34,7 @@ Search All Restaurants and Cafeterias: Users can search for both restaurants and
 
 🛠️ Technologies Used
 
- Java: Primary programming language.
-
- Spring Boot: Used to build the REST API services.
-
- MyBatis: Data persistence framework used for mapping SQL queries to Java objects.
-
- Lombok: Used for reducing boilerplate code in DTOs.
-
+![Java](https://img.shields.io/badge/Java-%23ED8B00.svg?style=flat-square&logo=openjdk&logoColor=white) ![Spring Boot](https://img.shields.io/badge/Spring%20Boot-6DB33F?style=flat-square&logo=spring-boot&logoColor=white) ![React](https://img.shields.io/badge/React-20232A?style=flat-square&logo=react&logoColor=61DAFB) ![MyBatis](https://img.shields.io/badge/MyBatis-000000.svg?style=flat-square&logo=MyBatis&logoColor=white) 
 
 
 📡 API Endpoints
