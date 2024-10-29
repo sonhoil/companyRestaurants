@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.company.restaurants.restaurant.mapper.RestaurantMapper">
+
+    <insert id="insertRestaurant" parameterType="com.company.restaurants.restaurant.domain.RestaurantDTO">
+        INSERT INTO restaurant (name, location, contact, latitude, longitude)
+        VALUES (#{name}, #{location}, #{contact}, #{latitude}, #{longitude})
+    </insert>
+
+    <insert id="insertRestaurantMenu" parameterType="com.company.restaurants.restaurant.domain.RestaurantMenuDTO">
+        INSERT INTO restaurant_menu (restaurant_id, menu_item, price)
+        VALUES (#{restaurantId}, #{menuItem}, #{price})
+    </insert>
+
+    <select id="searchRestaurant" parameterType="map" resultType="com.company.restaurants.restaurant.domain.RestaurantDTO">
+        SELECT restaurant.*, ( 6371 * acos( cos( radians(#{latitude}) ) * cos( radians( latitude ) ) * cos( radians( longitude ) - radians(#{longitude}) ) + sin( radians(#{latitude}) ) * sin( radians( latitude ) ) ) ) AS distance
+        FROM restaurant
+        WHERE 1=1
+        <if test="name != null and name != ''">
+            AND restaurant.name LIKE CONCAT('%', #{name}, '%')
+        </if>
+        <if test="location != null and location != ''">
+            AND restaurant.location LIKE CONCAT('%', #{location}, '%')
+        </if>
+        ORDER BY distance
+        LIMIT 10
+    </select>
+
+    <insert id="insertRestaurantMenuLike" parameterType="com.company.restaurants.restaurant.domain.MenuItemLikeDTO">
+        INSERT INTO restaurant_menu_like (restaurant_id, menu_item, user_id)
+        VALUES (#{restaurantId}, #{menuItem}, #{userId})
+    </insert>
+
+</mapper>

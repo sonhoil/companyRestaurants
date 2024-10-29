@@ -4,7 +4,6 @@ import com.company.restaurants.cafeteria.domain.CafeteriaDTO;
 import com.company.restaurants.cafeteria.domain.WeeklyMenuDTO;
 import com.company.restaurants.cafeteria.domain.FavoriteCafeteriaDTO;
 import com.company.restaurants.cafeteria.domain.MenuReviewDTO;
-import com.company.restaurants.cafeteria.domain.MenuLikeDTO;
 import com.company.restaurants.cafeteria.domain.MenuItemLikeDTO;
 import com.company.restaurants.cafeteria.mapper.CafeteriaMapper;
 import org.springframework.beans.factory.annotation.Autowired;
