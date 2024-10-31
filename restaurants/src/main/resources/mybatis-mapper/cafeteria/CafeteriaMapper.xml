@@ -19,7 +19,7 @@
         <if test="location != null and location != ''">
             AND cafeteria.location LIKE CONCAT('%', #{location}, '%')
         </if>
-        HAVING distance <= 1
+        HAVING 1 >= distance
         ORDER BY distance
         LIMIT 10
     </select>
@@ -32,9 +32,9 @@
     </select>
 
     <insert id="insertWeeklyMenu" parameterType="com.company.restaurants.cafeteria.domain.WeeklyMenuDTO">
-        INSERT INTO weekly_menu (cafeteria_id, day_of_week, meal_time, menu_items, image_url)
-        VALUES (#{cafeteriaId}, #{dayOfWeek}, #{mealTime}, #{menuItems}, #{imageUrl})
-    </insert>
+    INSERT INTO weekly_menu (cafeteria_id, day_of_week, meal_time, menu_items, image_url)
+    VALUES (#{cafeteriaId}, #{dayOfWeek}, #{mealTime}, #{menuItems}, #{imageUrl})
+</insert>
 
     <select id="getWeeklyMenu" parameterType="long" resultType="com.company.restaurants.cafeteria.domain.WeeklyMenuDTO">
         SELECT * FROM weekly_menu
