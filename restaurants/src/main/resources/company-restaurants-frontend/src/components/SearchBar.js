@@ -7,7 +7,7 @@ const SearchBar = ({ setResults }) => {
 
   const handleSearch = async () => {
     try {
-      const response = await api.get(`/restaurant-cafeteria/search?name=${query}`);
+      const response = await api.get(`/cafeteria/search?name=${query}`);
       setResults(response.data);
     } catch (error) {
       console.error('Error searching', error);

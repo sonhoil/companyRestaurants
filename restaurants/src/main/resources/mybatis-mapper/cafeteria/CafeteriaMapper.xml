@@ -31,10 +31,12 @@
         LIMIT 10
     </select>
 
-    <insert id="insertWeeklyMenu" parameterType="com.company.restaurants.cafeteria.domain.WeeklyMenuDTO">
-    INSERT INTO weekly_menu (cafeteria_id, day_of_week, meal_time, menu_items, image_url)
-    VALUES (#{cafeteriaId}, #{dayOfWeek}, #{mealTime}, #{menuItems}, #{imageUrl})
-</insert>
+     <insert id="insertWeeklyMenu" parameterType="com.company.restaurants.cafeteria.domain.WeeklyMenuDTO">
+        <foreach collection="menuItems" item="menuItem" separator=";">
+            INSERT INTO weekly_menu (cafeteria_id, day_of_week, meal_time, menu_item, image_url)
+            VALUES (#{cafeteriaId}, #{dayOfWeek}, #{mealTime}, #{menuItem}, #{imageUrl})
+        </foreach>
+    </insert>
 
     <select id="getWeeklyMenu" parameterType="long" resultType="com.company.restaurants.cafeteria.domain.WeeklyMenuDTO">
         SELECT * FROM weekly_menu
