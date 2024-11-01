@@ -1,18 +1,27 @@
-// src/pages/HomePage.js
 import React from 'react';
+import './Homepage.css';
 import CafeteriaList from '../components/CafeteriaList';
 import RestaurantList from '../components/RestaurantList';
 import SearchBar from '../components/SearchBar';
+import Footer from '../components/Footer';
 
-const HomePage = () => {
-  return (
-    <div>
-      <h1>Welcome to Company Restaurants</h1>
+const Homepage = () => {
+    return (
+      <div className="container">
+      <header className="header">
+          Company Cafeteria & Restaurants
+      </header>
+
       <SearchBar />
-      <CafeteriaList />
-      <RestaurantList />
-    </div>
-  );
+
+      <div className="card-list">
+          <CafeteriaList />
+          <RestaurantList />
+      </div>
+
+      <Footer />
+  </div>
+    );
 };
 
-export default HomePage;
+export default Homepage;
