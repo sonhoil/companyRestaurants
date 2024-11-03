@@ -15,12 +15,9 @@ const Homepage = () => {
 
     return (
         <div className="container">
-            <SearchBar showBackButton={false} />
+            <SearchBar showBackButton={false} onSearch={false}/>
 
-            <div className="card-list">
-                <CafeteriaList />
-                <RestaurantList />
-            </div>
+            <RestaurantList />
 
             <Footer />
         </div>

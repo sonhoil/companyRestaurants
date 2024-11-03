@@ -28,7 +28,7 @@ const SearchBar = ({ onSearch, showBackButton }) => {
   return (
     <div
       className="search-bar-container"
-      {...(!showBackButton && { onClick: handleSearchClick })}
+      {...(!onSearch && { onClick: handleSearchClick })}
     >
       {showBackButton && (
         <button className="back-button" onClick={handleBackClick}>

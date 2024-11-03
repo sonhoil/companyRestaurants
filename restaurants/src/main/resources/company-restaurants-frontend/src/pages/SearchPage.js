@@ -23,9 +23,9 @@ const SearchPage = () => {
     };
 
     return (
-        <div className="search-page-container">
+        <div className="container">
           
-          <SearchBar showBackButton={true} />
+          <SearchBar showBackButton={true} onSearch={true}/>
            
 
             <div className="popular-searches">

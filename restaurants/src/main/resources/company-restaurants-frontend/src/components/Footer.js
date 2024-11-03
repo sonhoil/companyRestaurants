@@ -18,19 +18,13 @@ const Footer = () => {
                 <i className="fas fa-home"></i>
                 <span>Home</span>
             </button>
+          
             <button
-                className={`footer-button ${activeButton === 'Cafeterias' ? 'active' : 'inactive'}`}
-                onClick={() => handleButtonClick('Cafeterias')}
-            >
-                <i className="fas fa-utensils"></i>
-                <span>Cafeterias</span>
-            </button>
-            <button
-                className={`footer-button ${activeButton === 'Restaurants' ? 'active' : 'inactive'}`}
-                onClick={() => handleButtonClick('Restaurants')}
+                className={`footer-button ${activeButton === 'Search' ? 'active' : 'inactive'}`}
+                onClick={() => handleButtonClick('Search')}
             >
                 <i className="fas fa-store"></i>
-                <span>Restaurants</span>
+                <span>Search</span>
             </button>
             <button
                 className={`footer-button ${activeButton === 'Favorites' ? 'active' : 'inactive'}`}

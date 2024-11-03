@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import SearchBar from '../components/SearchBar';
+import RestaurantList from '../components/RestaurantList';
 import Footer from '../components/Footer';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 
@@ -24,25 +25,9 @@ const SearchResultsPage = () => {
 
     return (
         <div className="search-page-container">
-            <SearchBar showBackButton={true} />
+            <SearchBar showBackButton={true} onSearch={false}/>
 
-            <div className="results-list">
-                <ul>
-                    {/* Dummy list items for restaurants/cafeterias */}
-                    <li className="result-item">
-                        <div className="result-title">McDonald's</div>
-                        <div className="result-location">123 Main St, Cityville</div>
-                    </li>
-                    <li className="result-item">
-                        <div className="result-title">Kimbap Heaven</div>
-                        <div className="result-location">456 Foodie Rd, Cityville</div>
-                    </li>
-                    <li className="result-item">
-                        <div className="result-title">Pizza Paradise</div>
-                        <div className="result-location">789 Slice Ave, Cityville</div>
-                    </li>
-                </ul>
-            </div>
+            <RestaurantList />
             <Footer />
         </div>
     );
