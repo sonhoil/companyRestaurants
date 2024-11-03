@@ -2,6 +2,8 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '@fortawesome/fontawesome-free/css/all.min.css';
+import SearchBar from '../components/SearchBar';
+
 
 const SearchPage = () => {
     const navigate = useNavigate();
@@ -23,11 +25,7 @@ const SearchPage = () => {
     return (
         <div className="search-page-container">
           
-            <div className="search-bar-container" >
-                <button className="back-button" onClick={handleBackClick}><i className="fas fa-arrow-left"></i></button>
-                <input type="text" placeholder="Search for a cafeteria or restaurant..." />
-                <button>Search</button>
-            </div>
+          <SearchBar showBackButton={true} />
            
 
             <div className="popular-searches">
