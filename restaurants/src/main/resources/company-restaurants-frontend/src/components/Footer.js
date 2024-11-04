@@ -1,19 +1,20 @@
 import React, { useState } from 'react';
-
+import { useNavigate } from 'react-router-dom';
 
 const Footer = () => {
     const [activeButton, setActiveButton] = useState('Home');
-
+    const navigate = useNavigate();
     const handleButtonClick = (buttonName) => {
         setActiveButton(buttonName);
+        navigate(`/${buttonName}`);
     };
 
     return (
         <footer className="footer">
             <div className="footer-top-border"></div>
             <button
-                className={`footer-button ${activeButton === 'Home' ? 'active' : 'inactive'}`}
-                onClick={() => handleButtonClick('Home')}
+                className={`footer-button ${activeButton === '' ? 'active' : 'inactive'}`}
+                onClick={() => handleButtonClick('')}
             >
                 <i className="fas fa-home"></i>
                 <span>Home</span>

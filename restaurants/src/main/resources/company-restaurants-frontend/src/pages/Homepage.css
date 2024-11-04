@@ -39,10 +39,11 @@ body {
 
 /* Fixed search bar container */
 .search-bar-container {
+    max-width: calc(100% - 20px);
     position: fixed;
     top: 0px; /* Positioned right below the header */
     left: 0;
-    width: 95%;
+    width: 100%;
     padding: 10px;
     background-color: #ffffff;
     display: flex;
@@ -69,7 +70,7 @@ body {
     width: calc(100% - 90px); /* Adjusted width to fill remaining space */
 }
 
-.search-bar-container button, .search-button {
+.search-button {
     padding: 10px;
     font-size: 1em;
     border: 1px solid #4CAF50;
@@ -83,7 +84,7 @@ body {
     font-family: 'Roboto', Arial, sans-serif;
 }
 
-.search-bar-container .back-button {
+.back-button {
     background: none;
     border: none;
     font-size: 1em;
@@ -238,6 +239,14 @@ body {
 }
 
 /* Info row styling with icons */
+.restaurant-summary {
+    display: flex;
+    gap: 15px;
+    font-size: 1.1em;
+    color: #666;
+    margin-bottom: 5px;
+}
+
 .restaurant-details {
     display: flex;
     flex-direction: row;
@@ -255,12 +264,72 @@ body {
     padding-left: 15px;
     font-family: 'Roboto', Arial, sans-serif;
 }
-
+.restaurant-summary .detail-item{
+    display: flex;
+    align-items: center;
+    font-size: 0.7em;
+    color: #777;
+    gap: 5px; /* Space between icon and text */
+    padding-left: 5px;
+    font-family: 'Roboto', Arial, sans-serif;
+    margin-top: 15px;
+}
 .detail-icon {
     font-size: 1.2em;
     color: #4CAF50;
 }
+/* Container styling */
+.details-container {
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+    font-family: 'Roboto', Arial, sans-serif;
+}
 
+/* Title styling */
+.details-container h1 {
+    display: contents;
+    font-size: 1.2em;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Tab styling */
+.tabs {
+    display: flex;
+    border-bottom: 2px solid #ddd;
+    margin-bottom: 20px;
+}
+
+.tab {
+    flex: 1;
+    padding: 15px;
+    cursor: pointer;
+    text-align: center;
+    font-weight: 500;
+    color: #666;
+    border: none;
+    background: none;
+    transition: color 0.3s ease;
+}
+
+.tab:hover {
+    color: #4CAF50;
+}
+
+.tab.active {
+    color: #4CAF50;
+    font-weight: bold;
+    border-bottom: 2px solid #4CAF50;
+}
+
+/* Content area for each tab */
+.tab-content {
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #fafafa;
+}
 /* Responsive adjustments */
 @media (max-width: 768px) {
     .container, .search-page-container {

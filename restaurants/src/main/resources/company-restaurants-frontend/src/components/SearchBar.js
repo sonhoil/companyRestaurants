@@ -41,7 +41,7 @@ const SearchBar = ({ onSearch, showBackButton }) => {
         onChange={handleInputChange}
         placeholder="Search for a cafeteria or restaurant..."
       />
-      <button onClick={handleSearch}>Search</button>
+      <button className="search-button" onClick={handleSearch}>Search</button>
     </div>
   );
 };
