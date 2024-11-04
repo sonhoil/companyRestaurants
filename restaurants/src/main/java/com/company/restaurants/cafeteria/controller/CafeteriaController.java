@@ -53,7 +53,7 @@ public class CafeteriaController {
         return ResponseEntity.ok("Cafeteria added to favorites successfully");
     }
 
-    @GetMapping("/favorites/{userId}")
+    @GetMapping("/favorites/{userId}") 
     public ResponseEntity<List<CafeteriaDTO>> getFavoriteCafeterias(@PathVariable Long userId) {
         List<CafeteriaDTO> favoriteCafeterias = cafeteriaService.getFavoriteCafeterias(userId);
         return ResponseEntity.ok(favoriteCafeterias);
