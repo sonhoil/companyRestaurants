@@ -68,7 +68,7 @@ public class CafeteriaService {
         } else {
             throw new IllegalArgumentException("User must be within 100 meters of the cafeteria and provide an image to leave a review.");
         }
-    }
+    } 
 
     public List<MenuReviewDTO> getMenuReviews(Long weeklyMenuId) {
         return cafeteriaMapper.getMenuReviews(weeklyMenuId);
