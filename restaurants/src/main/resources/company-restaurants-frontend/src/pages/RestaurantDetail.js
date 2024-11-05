@@ -1,11 +1,13 @@
 // src/components/RestaurantDetails.js
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Footer from '../components/Footer';
 import { useNavigate } from 'react-router-dom';
+import { useLikedRestaurants } from '../context/LikedRestaurantsContext';
 const RestaurantDetails = () => {
   const [activeTab, setActiveTab] = useState('info'); // Default tab
   const navigate = useNavigate();
-  
+  const { likedRestaurants, addRestaurant, removeRestaurant } = useLikedRestaurants();
+  const [isLiked, setIsLiked] = useState(false); // Like button state
   const handleBackClick = () => {
     navigate(-1);
   };
@@ -22,24 +24,48 @@ const RestaurantDetails = () => {
         return null;
     }
   };
+  const handleLikeClick = () => {
+    if (isLiked) {
+        removeRestaurant(restaurant.id);
+    } else {
+        addRestaurant(restaurant);
+    }
+    setIsLiked(!isLiked);
+};
 
+  const restaurant = {
+    id: 1,
+    name: 'Restaurant Name',
+    rating: 2,
+    price: '1 원',
+    distance: '1 km'
+};
+  useEffect(() => {
+    setIsLiked(likedRestaurants.some(r => r.id === restaurant.id));
+}, [likedRestaurants, restaurant.id]);
   return (
     <div className="details-container">
       <button className="back-button" onClick={handleBackClick}>
           <i className="fas fa-arrow-left"></i>
       </button>
-      <h1>Restaurant Name</h1>
-      <div className="restaurant-summary">
-        <div className="detail-item">
-          <i className="fas fa-star detail-icon"></i> 2 / 5
-        </div>
-        <div className="detail-item">
-          <i className="fas fa-dollar-sign detail-icon"></i> 1 원
-        </div>
-        <div className="detail-item">
-          <i className="fas fa-map-marker-alt detail-icon"></i> 1 km
-        </div>
-      </div> 
+      <h1>{restaurant.name}</h1>
+      <div className="restaurant-addInfo">
+        <div className="restaurant-summary">
+          <div className="detail-item">
+            <i className="fas fa-star detail-icon"></i> 2 / 5
+          </div>
+          <div className="detail-item">
+            <i className="fas fa-dollar-sign detail-icon"></i> 1 원
+          </div>
+          <div className="detail-item">
+            <i className="fas fa-map-marker-alt detail-icon"></i> 1 km
+          </div>
+        </div> 
+        <button className="like-button" onClick={handleLikeClick}>
+                <i className={`fas fa-heart ${isLiked ? 'liked' : ''}`}></i> {isLiked ? 'Liked' : 'Like'}
+            </button>
+      </div>
+      
       {/* Tabs */}
       <div className="tabs">
         <button 

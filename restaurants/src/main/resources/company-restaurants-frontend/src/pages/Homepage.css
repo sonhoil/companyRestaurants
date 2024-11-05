@@ -303,6 +303,110 @@ body {
 .details-container {
     padding: 15px;
 }
+
+.like-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1em;
+    color: #888;
+    margin: 10px 0;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    transition: color 0.3s ease;
+}
+
+.like-button:hover {
+    color: #ff6666;
+}
+
+.liked {
+    color: #ff6666; /* Red color for liked state */
+}
+.restaurant-addInfo{
+    display: flex;
+    justify-content: space-between;
+}
+
+.no-data-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 60vh;
+    color: #888;
+    text-align: center;
+}
+
+.no-data-icon {
+    font-size: 3em;
+    margin-bottom: 10px;
+    color: #cccccc;
+}
+
+.no-data-container p {
+    font-size: 1.2em;
+    color: #666;
+}
+
+.user-profile-container {
+    max-width: 600px;
+    margin: auto;
+    padding: 20px;
+    font-family: 'Roboto', Arial, sans-serif;
+}
+
+.user-info {
+    margin-bottom: 20px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #fafafa;
+}
+
+.user-info p {
+    font-size: 1em;
+    color: #333;
+}
+
+.verified {
+    color: #4CAF50;
+    font-weight: bold;
+}
+
+.verify-button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9em;
+    transition: background-color 0.3s ease;
+}
+
+.verify-button:hover {
+    background-color: #45a049;
+}
+
+.user-stats {
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #fafafa;
+}
+
+.user-stats h3 {
+    font-size: 1.2em;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.user-stats p {
+    font-size: 1em;
+    color: #333;
+}
 /* Responsive adjustments */
 @media (max-width: 768px) {
     .container, .search-page-container {
@@ -354,7 +458,6 @@ body {
     }
 
     .restaurant-summary {
-        flex-direction: column;
         align-items: center;
         font-size: 0.9em;
     }

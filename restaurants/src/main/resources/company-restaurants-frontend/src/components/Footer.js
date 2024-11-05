@@ -28,15 +28,15 @@ const Footer = () => {
                 <span>Search</span>
             </button>
             <button
-                className={`footer-button ${activeButton === 'Favorites' ? 'active' : 'inactive'}`}
-                onClick={() => handleButtonClick('Favorites')}
+                className={`footer-button ${activeButton === 'Favorite' ? 'active' : 'inactive'}`}
+                onClick={() => handleButtonClick('Favorite')}
             >
                 <i className="fas fa-heart"></i>
                 <span>Favorites</span>
             </button>
             <button
-                className={`footer-button ${activeButton === 'Profile' ? 'active' : 'inactive'}`}
-                onClick={() => handleButtonClick('Profile')}
+                className={`footer-button ${activeButton === 'UserProfilePage' ? 'active' : 'inactive'}`}
+                onClick={() => handleButtonClick('UserProfilePage')}
             >
                 <i className="fas fa-user"></i>
                 <span>Profile</span>
