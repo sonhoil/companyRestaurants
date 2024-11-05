@@ -41,19 +41,19 @@ body {
 .search-bar-container {
     max-width: calc(100% - 20px);
     position: fixed;
-    top: 0px; /* Positioned right below the header */
+    top: 0px;
     left: 0;
     width: 100%;
     padding: 10px;
     background-color: #ffffff;
     display: flex;
     justify-content: center;
-    z-index: 999; /* Ensures it stays above other content */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Adds subtle shadow */
+    z-index: 999;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .search-bar-container input[type="text"], .wide-search-input {
-    max-width: calc(100% - 60px); /* Adjusted to prevent overflow */
+    max-width: calc(100% - 60px);
     padding: 10px;
     font-size: 1em;
     border: 1px solid #ccc;
@@ -61,13 +61,6 @@ body {
     outline: none;
     width: 90%;
     font-family: 'Roboto', Arial, sans-serif;
-}
-
-.wide-search-input {
-    flex: 1;
-    margin: 0;
-    border-radius: 5px 0 0 5px;
-    width: calc(100% - 90px); /* Adjusted width to fill remaining space */
 }
 
 .search-button {
@@ -80,10 +73,9 @@ body {
     border-radius: 0 5px 5px 0;
     cursor: pointer;
     transition: background-color 0.3s;
-    flex-shrink: 0; /* Ensures button doesn't shrink */
+    flex-shrink: 0;
     font-family: 'Roboto', Arial, sans-serif;
 }
-
 .back-button {
     background: none;
     border: none;
@@ -91,11 +83,28 @@ body {
     cursor: pointer;
     color: #585555;
 }
-
 .search-bar-container .search-button:hover {
     background-color: #45a049;
 }
 
+.card-list li, .result-item {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    padding: 20px;
+    font-size: 1.1em;
+    color: #444;
+    transition: transform 0.3s ease;
+    border-bottom: 1px solid #eee;
+    cursor: pointer;
+    font-family: 'Roboto', Arial, sans-serif;
+}
+
+.card-list li:hover, .result-item:hover {
+    transform: translateY(-5px);
+    background-color: #f5f5f5;
+}
 .card-list, .popular-searches, .recent-searches, .results-list {
     margin-top: 20px;
 }
@@ -104,7 +113,6 @@ body {
     font-size: 1.5em;
     color: #333;
     margin-bottom: 10px;
-    font-family: 'Roboto', Arial, sans-serif;
 }
 
 .card-list ul, .popular-searches ul, .recent-searches ul, .results-list ul {
@@ -123,14 +131,12 @@ body {
     transition: transform 0.3s ease;
     border-bottom: 1px solid #eee;
     cursor: pointer;
-    font-family: 'Roboto', Arial, sans-serif;
 }
 
 .card-list li:hover, .popular-searches li:hover, .recent-searches li:hover, .result-item:hover {
     transform: translateY(-5px);
     background-color: #f5f5f5;
 }
-
 .result-location {
     font-size: 1em;
     color: #777;
@@ -178,11 +184,6 @@ body {
     color: #4CAF50;
 }
 
-.footer .footer-button i {
-    font-size: 1.5em;
-    margin-bottom: 5px;
-}
-
 .footer .footer-button:hover {
     background-color: #f1f1f1;
     width: 100%;
@@ -194,7 +195,7 @@ body {
     flex-wrap: wrap;
     gap: 20px;
     padding: 20px;
-    padding-bottom: 80px; /* Prevents footer overlap */
+    padding-bottom: 80px;
     justify-content: center;
 }
 
@@ -245,56 +246,22 @@ body {
     font-size: 1.1em;
     color: #666;
     margin-bottom: 5px;
-}
-
-.restaurant-details {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    width: 100%;
-    margin-top: 10px;
+    justify-content: start;
+    flex-wrap: wrap;
 }
 
 .detail-item {
     display: flex;
     align-items: center;
-    font-size: 0.9em;
-    color: #777;
-    gap: 5px; /* Space between icon and text */
-    padding-left: 15px;
-    font-family: 'Roboto', Arial, sans-serif;
+    gap: 5px;
+    padding-left: 10px;
 }
-.restaurant-summary .detail-item{
-    display: flex;
-    align-items: center;
-    font-size: 0.7em;
-    color: #777;
-    gap: 5px; /* Space between icon and text */
-    padding-left: 5px;
-    font-family: 'Roboto', Arial, sans-serif;
-    margin-top: 15px;
-}
+
 .detail-icon {
-    font-size: 1.2em;
     color: #4CAF50;
 }
-/* Container styling */
-.details-container {
-    max-width: 800px;
-    margin: auto;
-    padding: 20px;
-    font-family: 'Roboto', Arial, sans-serif;
-}
 
-/* Title styling */
-.details-container h1 {
-    display: contents;
-    font-size: 1.2em;
-    margin-bottom: 20px;
-    color: #333;
-}
-
-/* Tab styling */
+/* Tabs styling */
 .tabs {
     display: flex;
     border-bottom: 2px solid #ddd;
@@ -330,17 +297,34 @@ body {
     border-radius: 8px;
     background-color: #fafafa;
 }
+.restaurant-details{
+    display: flex;
+}
+.details-container {
+    padding: 15px;
+}
 /* Responsive adjustments */
 @media (max-width: 768px) {
     .container, .search-page-container {
         padding: 10px;
     }
+
+    
+
     .header {
         font-size: 1.5em;
     }
-    .card-list li, .popular-searches li, .recent-searches li {
-        padding: 15px;
+
+    .restaurant-summary {
+        font-size: 1em;
+        gap: 10px;
     }
+
+    .tab {
+        padding: 10px;
+        font-size: 0.9em;
+    }
+
     .footer .footer-button {
         padding: 15px;
         font-size: 1.0em;
@@ -351,13 +335,38 @@ body {
     .header {
         font-size: 1.3em;
     }
-    .card-list li, .popular-searches li, .recent-searches li {
-        padding: 10px;
-    }
+
     .restaurant-card {
         width: 90%;
     }
+
     .restaurant-name {
         font-size: 1.1em;
+    }
+
+    .details-container {
+        padding: 10px;
+    }
+
+    .details-container h1 {
+        font-size: 1.2em;
+        margin-bottom: 10px;
+    }
+
+    .restaurant-summary {
+        flex-direction: column;
+        align-items: center;
+        font-size: 0.9em;
+    }
+
+    .tab {
+        flex: 1 1 100%;
+        padding: 8px;
+        font-size: 0.9em;
+        border-bottom: 1px solid #ddd;
+    }
+
+    .tab-content {
+        padding: 15px;
     }
 }
