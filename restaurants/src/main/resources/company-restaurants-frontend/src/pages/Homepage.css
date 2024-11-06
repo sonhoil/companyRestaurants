@@ -407,6 +407,40 @@ body {
     font-size: 1em;
     color: #333;
 }
+
+/* Review Component Styling */
+.review-item {
+    display: flex;
+    align-items: flex-start;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    padding: 15px;
+    background-color: #fafafa;
+}
+
+.review-photo {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    margin-right: 15px;
+}
+
+.review-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.review-author {
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.review-text {
+    font-size: 0.9em;
+    color: #666;
+}
 /* Responsive adjustments */
 @media (max-width: 768px) {
     .container, .search-page-container {
