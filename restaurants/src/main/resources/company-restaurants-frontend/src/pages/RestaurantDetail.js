@@ -73,7 +73,9 @@ const RestaurantDetails = () => {
         }
         setIsLiked(!isLiked);
     };
-
+    const handleWriteReviewClick = () => {
+        navigate('/write-review');
+    };
     const renderContent = () => {
         switch (activeTab) {
             case 'info':
@@ -125,20 +127,28 @@ const RestaurantDetails = () => {
                 </button>
                 <h1>{restaurant.name}</h1>
               </div>
-              <button className="like-button" onClick={handleLikeClick}>
-                  <i className={`fas fa-heart ${isLiked ? 'liked' : ''}`}></i> {isLiked ? 'Liked' : 'Like'}
-              </button>
+              <div className="btn-area">
+                <button className="like-button" onClick={handleLikeClick}>
+                    <i className={`fas fa-heart ${isLiked ? 'liked' : ''}`}></i> {isLiked ? 'Liked' : 'Like'}
+                </button>
+                
+              </div>
             </div>
             <div className="restaurant-summary">
-                <div className="detail-item">
-                    <i className="fas fa-star detail-icon"></i> {restaurant.rating} / 5
+                <div className="detail-items">
+                    <div className="detail-item">
+                        <i className="fas fa-star detail-icon"></i> {restaurant.rating} / 5
+                    </div>
+                    <div className="detail-item">
+                        <i className="fas fa-dollar-sign detail-icon"></i> {restaurant.price}
+                    </div>
+                    <div className="detail-item">
+                        <i className="fas fa-map-marker-alt detail-icon"></i> {restaurant.distance}
+                    </div>
                 </div>
-                <div className="detail-item">
-                    <i className="fas fa-dollar-sign detail-icon"></i> {restaurant.price}
-                </div>
-                <div className="detail-item">
-                    <i className="fas fa-map-marker-alt detail-icon"></i> {restaurant.distance}
-                </div>
+                <button className="write-review-button" onClick={handleWriteReviewClick}>
+                        <i className="fas fa-pen"></i>
+                </button>
             </div>
             <div className="tabs">
                 <button 

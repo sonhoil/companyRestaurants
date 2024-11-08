@@ -7,6 +7,7 @@ import SearchResultsPage from './pages/SearchResultsPage';
 import RestaurantDetails from './pages/RestaurantDetail';
 import Favorite from './pages/Favorite';
 import UserProfilePage from './pages/UserProfilePage';
+import WriteReviewPage from './pages/WriteReviewPage'; // 리뷰 작성 페이지 import
 import { LikedRestaurantsProvider } from './context/LikedRestaurantsContext';
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Route path="/restaurant/:id" element={<RestaurantDetails />} />
         <Route path="/Favorite" element={<Favorite />} />
         <Route path="/UserProfilePage" element={<UserProfilePage />} />
+        <Route path="/write-review" element={<WriteReviewPage />} /> {/* 리뷰 작성 경로 추가 */}
         {/* 추가적인 경로 설정 가능 */}
       </Routes>
     </Router>

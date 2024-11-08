@@ -241,7 +241,6 @@ body {
 
 /* Info row styling with icons */
 .restaurant-summary {
-    display: flex;
     gap: 15px;
     font-size: 1.1em;
     color: #666;
@@ -249,6 +248,8 @@ body {
     margin-bottom: 15px;
     justify-content: start;
     flex-wrap: wrap;
+    display: flex;
+    justify-content: space-between;
 }
 
 .detail-item {
@@ -261,7 +262,9 @@ body {
 .detail-icon {
     color: #4CAF50;
 }
-
+.detail-items{
+    display: flex;
+}
 /* Tabs styling */
 .tabs {
     display: flex;
@@ -300,7 +303,7 @@ body {
     display: flex;
 }
 .details-container {
-    padding: 58px;
+    padding: 15px;
 }
 
 .like-button {
@@ -421,7 +424,102 @@ body {
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 20px;
 }
+.action-buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
 
+
+
+.write-review-button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 8px 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 0.9em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.write-review-button i {
+    margin-right: 5px;
+}
+
+.write-review-button:hover {
+    background-color: #45a049;
+}
+.write-review-container {
+    max-width: 600px;
+    margin: auto;
+    padding: 20px;
+    font-family: 'Roboto', Arial, sans-serif;
+}
+
+.write-review-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.write-review-form label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: #333;
+}
+
+.write-review-form textarea {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    resize: vertical;
+}
+
+.submit-review-button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 15px;
+    transition: background-color 0.3s ease;
+}
+
+.submit-review-button:hover {
+    background-color: #45a049;
+}
+
+.star-rating {
+    display: inline-block;
+    cursor: pointer;
+    color: #FFD700;
+}
+
+.star-rating .fa-star.full {
+    color: #FFD700;
+}
+
+.star-rating .fa-star.half {
+    background: linear-gradient(90deg, #FFD700 50%, #ddd 50%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.star-rating .fa-star.empty {
+    color: #ddd;
+}
+
+.review-photo-preview {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    margin-top: 10px;
+    border-radius: 5px;
+}
 /* Individual Review Styling */
 .review-item {
     display: flex;
@@ -579,6 +677,7 @@ body {
     .restaurant-summary {
         align-items: center;
         font-size: 0.9em;
+
     }
 
     .tab {
