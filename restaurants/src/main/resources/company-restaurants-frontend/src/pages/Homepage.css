@@ -623,6 +623,53 @@ body {
     object-fit: cover;
     border-radius: 8px;
 }
+
+.homepage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    font-family: 'Roboto', Arial, sans-serif;
+}
+
+.recommend-button {
+    padding: 15px 25px;
+    font-size: 1.5em;
+    color: #ffffff;
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.recommend-button:hover {
+    background-color: #45a049;
+}
+
+.loading-animation {
+    font-size: 1.2em;
+    color: #4CAF50;
+    margin-top: 20px;
+    animation: fadeInOut 1s infinite;
+}
+
+@keyframes fadeInOut {
+    0%, 100% {
+        opacity: 0.2;
+    }
+    50% {
+        opacity: 1;
+    }
+}
+
+.recommended-restaurant {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 1.2em;
+    color: #333;
+}
 /* Responsive adjustments */
 @media (max-width: 768px) {
     .container, .search-page-container {
