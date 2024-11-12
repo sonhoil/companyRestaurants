@@ -199,24 +199,6 @@ body {
     justify-content: center;
 }
 
-.restaurant-card {
-    background-color: #ffffff;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    width: 300px;
-    transition: transform 0.3s ease;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    font-family: 'Roboto', Arial, sans-serif;
-}
-
-.restaurant-card:hover {
-    transform: translateY(-5px);
-}
-
 .restaurant-image {
     width: 100%;
     height: 180px;
@@ -238,7 +220,25 @@ body {
     padding-left: 10px;
     font-family: 'Roboto', Arial, sans-serif;
 }
+.restaurant-card {
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    width: 310px;
+    text-align: center;
+    margin-top: 20px;
+    transition: transform 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
 
+.restaurant-card:hover {
+    transform: translateY(-5px);
+}
 /* Info row styling with icons */
 .restaurant-summary {
     gap: 15px;
@@ -644,10 +644,50 @@ body {
     transition: background-color 0.3s ease;
 }
 
+
+.homepage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    font-family: 'Roboto', Arial, sans-serif;
+}
+
+.recommend-button {
+    padding: 15px 25px;
+    font-size: 1.5em;
+    color: #ffffff;
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
 .recommend-button:hover {
     background-color: #45a049;
 }
+.recommended-container {
+    position: relative;
+    display: inline-block;
+}
 
+.recommend-icon {
+    position: absolute;
+    top: -5px;
+    left: 276px;
+    font-size: 1.5em;
+    color: #4CAF50;
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.recommend-icon:hover {
+    color: #45a049;
+}
 .loading-animation {
     font-size: 1.2em;
     color: #4CAF50;
@@ -655,13 +695,56 @@ body {
     animation: fadeInOut 1s infinite;
 }
 
-@keyframes fadeInOut {
-    0%, 100% {
-        opacity: 0.2;
-    }
-    50% {
-        opacity: 1;
-    }
+.homepage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    font-family: 'Roboto', Arial, sans-serif;
+    margin-top: 0px;
+}
+
+.recommend-button {
+    padding: 15px 25px;
+    font-size: 1.5em;
+    color: #ffffff;
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.recommend-button:hover {
+    background-color: #45a049;
+}
+
+.loading-animation {
+    display: flex;
+    gap: 25px;
+    margin-top: 20px;
+    font-size: 3em; /* 아이콘 크기 확대 */
+    color: #ccc; /* 회색 아이콘 */
+    animation: slideAnimation 1s infinite linear;
+}
+.loading-animation i {
+    animation: bounce 0.6s infinite alternate;
+}
+
+.loading-animation i:nth-child(1) { animation-delay: 0s; }
+.loading-animation i:nth-child(2) { animation-delay: 0.1s; }
+.loading-animation i:nth-child(3) { animation-delay: 0.2s; }
+.loading-animation i:nth-child(4) { animation-delay: 0.3s; }
+
+@keyframes bounce {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-15px); }
+}
+@keyframes slideAnimation {
+    0% { opacity: 0.2; }
+    50% { opacity: 1; }
+    100% { opacity: 0.2; }
 }
 
 .recommended-restaurant {
