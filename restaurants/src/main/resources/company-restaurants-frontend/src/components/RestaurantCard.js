@@ -1,9 +1,12 @@
 // src/components/RestaurantCard.js
 import React from 'react';
-
+import { useNavigate } from 'react-router-dom';
 const RestaurantCard = ({ restaurant }) => {
+    const navigate = useNavigate();
     return (
-        <div className="restaurant-card">
+        <div className="restaurant-card"
+        onClick={() => navigate(`/restaurant/${restaurant.id}`)}
+        >
             <img src={restaurant.image} alt={restaurant.name} className="restaurant-image" />
             <div className="restaurant-info">
                 <h3 className="restaurant-name">{restaurant.name}</h3>

@@ -675,8 +675,8 @@ body {
 
 .recommend-icon {
     position: absolute;
-    top: -10px;
-    left: 276px;
+    top: -15px;
+    left: 273px;
     font-size: 1.5em;
     color: #4CAF50;
     background: none;
@@ -704,20 +704,57 @@ body {
     font-family: 'Roboto', Arial, sans-serif;
     margin-top: 0px;
 }
-
-.recommend-button {
-    padding: 15px 25px;
-    font-size: 1.5em;
-    color: #ffffff;
-    background-color: #4CAF50;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+/* 옵션 선택 스타일 */
+.recommend-options {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-bottom: 40px;
 }
 
-.recommend-button:hover {
-    background-color: #45a049;
+.recommend-options label {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8em; /* 작은 글씨 크기 */
+    color: #4CAF50;
+    cursor: pointer;
+}
+
+.recommend-options input[type="radio"] {
+    display: none;
+}
+
+.recommend-option-btn {
+    background-color: #f1f1f1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 70px; /* 적당한 버튼 너비 */
+    height: 70px; /* 고정된 높이 */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease;
+    text-align: center;
+}
+
+.recommend-option-btn:hover,
+.recommend-option-btn.active {
+    background-color: #4CAF50;
+    color: #fff;
+    border-color: #4CAF50;
+}
+
+.recommend-option-btn i {
+    font-size: 1.5em; /* 아이콘 크기 */
+    margin-bottom: 5px;
+}
+
+.recommend-option-btn.active i {
+    color: #fff;
 }
 
 .loading-animation {
@@ -820,4 +857,5 @@ body {
     .tab-content {
         padding: 15px;
     }
+   
 }
