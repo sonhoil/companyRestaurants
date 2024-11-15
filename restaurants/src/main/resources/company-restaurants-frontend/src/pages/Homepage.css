@@ -774,6 +774,99 @@ body {
 .loading-animation i:nth-child(3) { animation-delay: 0.2s; }
 .loading-animation i:nth-child(4) { animation-delay: 0.3s; }
 
+/* src/styles/SignupLogin.css */
+.signup-page, .login-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    font-family: 'Roboto', Arial, sans-serif;
+    background-color: #f9f9f9;
+    padding: 0px 20px 0px 20px;
+}
+
+h1 {
+    font-size: 2em;
+    color: #4CAF50;
+    margin-bottom: 20px;
+}
+
+.social-login-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.social-login-buttons button {
+    padding: 10px 15px;
+    font-size: 1em;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    color: #fff;
+}
+
+.social-login-buttons button i {
+    margin-right: 10px;
+}
+
+.social-login-buttons button:hover {
+    opacity: 0.9;
+}
+
+.social-login-buttons button:nth-child(1) {
+    background-color: #db4437; /* Google Red */
+}
+
+.social-login-buttons button:nth-child(2) {
+    background-color: #3b5998; /* Facebook Blue */
+}
+
+.social-login-buttons button:nth-child(3) {
+    background-color: #000000; /* Apple Black */
+}
+
+.additional-inputs {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+    max-width: 400px;
+}
+
+.additional-inputs input {
+    padding: 10px;
+    font-size: 1em;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.additional-inputs input:focus {
+    border-color: #4CAF50;
+    outline: none;
+}
+
+.signup-button {
+    padding: 10px;
+    font-size: 1.2em;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.signup-button:hover {
+    background-color: #45a049;
+}
+
+
 @keyframes bounce {
     0% { transform: translateY(0); }
     100% { transform: translateY(-15px); }
@@ -814,7 +907,7 @@ body {
 
     .footer .footer-button {
         padding: 15px;
-        font-size: 1.0em;
+        font-size: 1.2em;
     }
 }
 
