@@ -18,18 +18,20 @@ const RestaurantDetails = () => {
         name: 'Restaurant Name',
         rating: 2,
         price: '1 원',
-        distance: '1 km'
+        distance: '1 km',
+        address: '123 Main St, Cityville',
+        hours: '10:00 AM - 10:00 PM',
+        phone: '123-456-7890',
+        website: 'https://restaurantwebsite.com',
+        additionalNotes: 'This is a cozy place with a great atmosphere. Free parking available.'
     };
 
     useEffect(() => {
-      setIsLiked(likedRestaurants.some(r => r.id === restaurant.id));
-      if (activeTab === 'reviews') {
-          fetchReviews();
-      }
-      if (activeTab === 'menu') {
-          fetchMenuItems();
-      }
-  }, [likedRestaurants, restaurant.id, activeTab]);
+        setIsLiked(likedRestaurants.some(r => r.id === restaurant.id));
+        if (activeTab === 'info') fetchMenuItems();
+        if (activeTab === 'reviews') fetchReviews();
+        if (activeTab === 'menu') fetchMenuItems();
+    }, [likedRestaurants, restaurant.id, activeTab]);
 
     // 임시 데이터로 리뷰 설정
     const fetchReviews = () => {
@@ -76,10 +78,49 @@ const RestaurantDetails = () => {
     const handleWriteReviewClick = () => {
         navigate('/write-review');
     };
+    const handleViewMoreMenusClick = () => setActiveTab('menu');
     const renderContent = () => {
         switch (activeTab) {
             case 'info':
-                return <div>Basic information about the restaurant...</div>;
+                return (
+                    <div className="info-container">
+                        <div className="info-item">
+                            <i className="fas fa-map-marker-alt info-icon"></i>
+                            <span>{restaurant.address}</span>
+                        </div>
+                        <div className="info-item">
+                            <i className="fas fa-clock info-icon"></i>
+                            <span>{restaurant.hours}</span>
+                        </div>
+                        <div className="info-item">
+                            <i className="fas fa-phone info-icon"></i>
+                            <span>{restaurant.phone}</span>
+                        </div>
+                        <div className="info-item">
+                            <i className="fas fa-globe info-icon"></i>
+                            <a href={restaurant.website} target="_blank" rel="noopener noreferrer">
+                                {restaurant.website}
+                            </a>
+                        </div>
+                        <div className="info-item">
+                            <i className="fas fa-info-circle info-icon"></i>
+                            <span>{restaurant.additionalNotes}</span>
+                        </div>
+                        <hr className="section-divider" />
+
+                        {/* 메뉴 미리보기 */}
+                        <h2>Menu Preview</h2>
+                        <div className="menu-container">
+                            {menuItems.slice(0, 4).map((menuItem) => (
+                                <MenuItem key={menuItem.id} {...menuItem} />
+                            ))}
+                        </div>
+                        <button className="view-more-button" onClick={handleViewMoreMenusClick}>
+                            View More Menus
+                        </button>
+                    </div>
+                );
+                
               case 'menu':
                   return (
                       <div className="menu-container">
