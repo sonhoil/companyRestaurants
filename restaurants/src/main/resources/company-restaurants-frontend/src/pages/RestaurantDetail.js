@@ -28,9 +28,13 @@ const RestaurantDetails = () => {
 
     useEffect(() => {
         setIsLiked(likedRestaurants.some(r => r.id === restaurant.id));
-        if (activeTab === 'info') fetchMenuItems();
+        if (activeTab === 'info') {
+            fetchMenuItems();
+            fetchReviews();
+        }
         if (activeTab === 'reviews') fetchReviews();
         if (activeTab === 'menu') fetchMenuItems();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
     }, [likedRestaurants, restaurant.id, activeTab]);
 
     // 임시 데이터로 리뷰 설정
@@ -79,6 +83,7 @@ const RestaurantDetails = () => {
         navigate('/write-review');
     };
     const handleViewMoreMenusClick = () => setActiveTab('menu');
+    const handleViewMoreReviewsClick = () => setActiveTab('reviews');
     const renderContent = () => {
         switch (activeTab) {
             case 'info':
@@ -117,6 +122,20 @@ const RestaurantDetails = () => {
                         </div>
                         <button className="view-more-button" onClick={handleViewMoreMenusClick}>
                             View More Menus
+                        </button>
+
+                        {/* 구분선 */}
+                        <hr className="section-divider" />
+
+                        {/* 리뷰 미리보기 */}
+                        <h2>Review Preview</h2>
+                        <div className="review-preview">
+                            {reviews.slice(0, 2).map(review => (
+                                <Review key={review.id} {...review} />
+                            ))}
+                        </div>
+                        <button className="view-more-button" onClick={handleViewMoreReviewsClick}>
+                            View More Reviews
                         </button>
                     </div>
                 );
