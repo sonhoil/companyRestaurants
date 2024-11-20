@@ -76,6 +76,7 @@ body {
     flex-shrink: 0;
     font-family: 'Roboto', Arial, sans-serif;
 }
+
 .back-button {
     background: none;
     border: none;
@@ -83,6 +84,7 @@ body {
     cursor: pointer;
     color: #585555;
 }
+
 .search-bar-container .search-button:hover {
     background-color: #45a049;
 }
@@ -105,6 +107,7 @@ body {
     transform: translateY(-5px);
     background-color: #f5f5f5;
 }
+
 .card-list, .popular-searches, .recent-searches, .results-list {
     margin-top: 20px;
 }
@@ -120,23 +123,6 @@ body {
     padding: 0;
 }
 
-.card-list li, .popular-searches li, .recent-searches li, .result-item {
-    background-color: white;
-    border-radius: 10px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    margin-bottom: 20px;
-    padding: 20px;
-    font-size: 1.1em;
-    color: #444;
-    transition: transform 0.3s ease;
-    border-bottom: 1px solid #eee;
-    cursor: pointer;
-}
-
-.card-list li:hover, .popular-searches li:hover, .recent-searches li:hover, .result-item:hover {
-    transform: translateY(-5px);
-    background-color: #f5f5f5;
-}
 .result-location {
     font-size: 1em;
     color: #777;
@@ -220,6 +206,7 @@ body {
     padding-left: 10px;
     font-family: 'Roboto', Arial, sans-serif;
 }
+
 .restaurant-card {
     background-color: #ffffff;
     border: 1px solid #ddd;
@@ -239,6 +226,7 @@ body {
 .restaurant-card:hover {
     transform: translateY(-5px);
 }
+
 /* Info row styling with icons */
 .restaurant-summary {
     gap: 15px;
@@ -262,9 +250,11 @@ body {
 .detail-icon {
     color: #4CAF50;
 }
-.detail-items{
+
+.detail-items {
     display: flex;
 }
+
 /* Tabs styling */
 .tabs {
     display: flex;
@@ -303,9 +293,11 @@ body {
     padding: 20px;
     border-radius: 8px;
 }
-.restaurant-details{
+
+.restaurant-details {
     display: flex;
 }
+
 .details-container {
     padding: 15px;
 }
@@ -330,20 +322,12 @@ body {
 .liked {
     color: #ff6666; /* Red color for liked state */
 }
-.restaurant-addInfo{
+
+.restaurant-addInfo {
     display: flex;
     justify-content: space-between;
 }
 
-.no-data-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 60vh;
-    color: #888;
-    text-align: center;
-}
 .info-container {
     display: flex;
     flex-direction: column;
@@ -362,6 +346,7 @@ body {
     font-size: 1em;
     color: #777;
 }
+
 .section-divider {
     border: none;
     border-top: 1px solid #ccc;
@@ -374,6 +359,7 @@ body {
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 20px;
 }
+
 .view-more-button {
     margin-top: 20px;
     padding: 10px 20px;
@@ -388,12 +374,14 @@ body {
 .view-more-button:hover {
     background-color: #45a049;
 }
+
 .detail-headercontainer {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 20px;
 }
+
 .no-data-icon {
     font-size: 3em;
     margin-bottom: 10px;
@@ -462,12 +450,14 @@ body {
     font-size: 1em;
     color: #333;
 }
-.detail-headercontainer{    
+
+.detail-headercontainer {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
-.detail-namebox{    
+
+.detail-namebox {
     display: flex;
 }
 
@@ -477,13 +467,12 @@ body {
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 20px;
 }
+
 .action-buttons {
     display: flex;
     gap: 10px;
     margin-top: 10px;
 }
-
-
 
 .write-review-button {
     background-color: #4CAF50;
@@ -503,6 +492,7 @@ body {
 .write-review-button:hover {
     background-color: #45a049;
 }
+
 .write-review-container {
     max-width: 600px;
     margin: auto;
@@ -573,6 +563,7 @@ body {
     margin-top: 10px;
     border-radius: 5px;
 }
+
 /* Individual Review Styling */
 .review-item {
     display: flex;
@@ -697,30 +688,10 @@ body {
     transition: background-color 0.3s ease;
 }
 
-
-.homepage {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    font-family: 'Roboto', Arial, sans-serif;
-}
-
-.recommend-button {
-    padding: 15px 25px;
-    font-size: 1.5em;
-    color: #ffffff;
-    background-color: #4CAF50;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
 .recommend-button:hover {
     background-color: #45a049;
 }
+
 .recommended-container {
     position: relative;
     display: inline-block;
@@ -741,6 +712,7 @@ body {
 .recommend-icon:hover {
     color: #45a049;
 }
+
 .loading-animation {
     font-size: 1.2em;
     color: #4CAF50;
@@ -757,6 +729,7 @@ body {
     font-family: 'Roboto', Arial, sans-serif;
     margin-top: 0px;
 }
+
 /* 옵션 선택 스타일 */
 .recommend-options {
     display: flex;
@@ -818,6 +791,7 @@ body {
     color: #ccc; /* 회색 아이콘 */
     animation: slideAnimation 1s infinite linear;
 }
+
 .loading-animation i {
     animation: bounce 0.6s infinite alternate;
 }
@@ -919,11 +893,11 @@ h1 {
     background-color: #45a049;
 }
 
-
 @keyframes bounce {
     0% { transform: translateY(0); }
     100% { transform: translateY(-15px); }
 }
+
 @keyframes slideAnimation {
     0% { opacity: 0.2; }
     50% { opacity: 1; }
@@ -936,13 +910,12 @@ h1 {
     font-size: 1.2em;
     color: #333;
 }
+
 /* Responsive adjustments */
 @media (max-width: 768px) {
     .container, .search-page-container {
         padding: 10px;
     }
-
-    
 
     .header {
         font-size: 1.5em;
@@ -990,7 +963,6 @@ h1 {
     .restaurant-summary {
         align-items: center;
         font-size: 0.9em;
-
     }
 
     .tab {
@@ -1003,5 +975,4 @@ h1 {
     .tab-content {
         padding: 15px;
     }
-   
 }
