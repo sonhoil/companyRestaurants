@@ -3,6 +3,8 @@ package com.company.restaurants.restaurant.mapper;
 import com.company.restaurants.restaurant.domain.RestaurantDTO;
 import com.company.restaurants.restaurant.domain.RestaurantMenuDTO;
 import com.company.restaurants.restaurant.domain.MenuItemLikeDTO;
+import com.company.restaurants.restaurant.domain.MenuDTO;
+import com.company.restaurants.restaurant.domain.ReviewDTO;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
@@ -20,4 +22,8 @@ public interface RestaurantMapper {
                                           @Param("location") String location);
 
     void insertRestaurantMenuLike(MenuItemLikeDTO menuItemLikeDTO);
+
+    List<MenuDTO> findMenuByRestaurantId(@Param("restaurantId") Long restaurantId);
+
+    List<ReviewDTO> findReviewsByRestaurantId(@Param("restaurantId") Long restaurantId);
 }

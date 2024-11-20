@@ -2,6 +2,8 @@ package com.company.restaurants.restaurant.controller;
 
 import com.company.restaurants.restaurant.domain.RestaurantDTO;
 import com.company.restaurants.restaurant.domain.RestaurantMenuDTO;
+import com.company.restaurants.restaurant.domain.ReviewDTO;
+import com.company.restaurants.restaurant.domain.MenuDTO;
 import com.company.restaurants.restaurant.domain.MenuItemLikeDTO;
 import com.company.restaurants.restaurant.service.RestaurantService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,5 +44,17 @@ public class RestaurantController {
     public ResponseEntity<String> addRestaurantMenuLike(@RequestBody MenuItemLikeDTO menuItemLikeDTO) {
         restaurantService.addRestaurantMenuLike(menuItemLikeDTO);
         return ResponseEntity.ok("Restaurant menu like added successfully");
+    }
+
+    @GetMapping("/{id}/menu")
+    public ResponseEntity<List<MenuDTO>> getRestaurantMenu(@PathVariable Long id) {
+        List<MenuDTO> menuItems = restaurantService.getRestaurantMenu(id);
+        return ResponseEntity.ok(menuItems);
+    }
+
+    @GetMapping("/{id}/reviews")
+    public ResponseEntity<List<ReviewDTO>> getRestaurantReviews(@PathVariable Long id) {
+        List<ReviewDTO> reviews = restaurantService.getRestaurantReviews(id);
+        return ResponseEntity.ok(reviews);
     }
 }

@@ -30,5 +30,29 @@
         INSERT INTO restaurant_menu_like (restaurant_id, menu_item, user_id)
         VALUES (#{restaurantId}, #{menuItem}, #{userId})
     </insert>
+    <select id="getRestaurantById" parameterType="long" resultType="com.company.restaurants.restaurant.domain.RestaurantDTO">
+        SELECT *
+        FROM restaurant 
+        WHERE restaurant_id = #{restaurantId}
+    </select>
+
+    <select id="getRestaurantMenus" parameterType="long" resultType="com.company.restaurants.restaurant.domain.RestaurantMenuDTO">
+        SELECT *
+        FROM restaurant_menu
+        WHERE restaurant_id = #{restaurantId}
+    </select>
+
+    <select id="getRestaurantReviews" parameterType="long" resultType="com.company.restaurants.restaurant.domain.ReviewDTO">
+        SELECT *
+        FROM restaurant_review
+        WHERE restaurant_id = #{restaurantId}
+        ORDER BY id DESC
+    </select>
+
+    <select id="getMenuItemLikes" parameterType="map" resultType="int">
+        SELECT COUNT(*)
+        FROM restaurant_menu_like
+        WHERE restaurant_id = #{restaurantId} AND menu_item = #{menuItem}
+    </select>
 
 </mapper>

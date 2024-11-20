@@ -2,9 +2,11 @@ package com.company.restaurants.restaurant.service;
 
 import com.company.restaurants.restaurant.domain.RestaurantDTO;
 import com.company.restaurants.restaurant.domain.RestaurantMenuDTO;
+import com.company.restaurants.restaurant.domain.ReviewDTO;
 import com.company.restaurants.cafeteria.domain.CafeteriaDTO;
 import com.company.restaurants.cafeteria.mapper.CafeteriaMapper;
 import com.company.restaurants.cafeteria.service.CafeteriaService;
+import com.company.restaurants.restaurant.domain.MenuDTO;
 import com.company.restaurants.restaurant.domain.MenuItemLikeDTO;
 import com.company.restaurants.restaurant.mapper.RestaurantMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,5 +47,13 @@ public class RestaurantService {
         allPlaces.addAll(cafeterias);
         allPlaces.addAll(restaurants);
         return allPlaces;
+    }
+
+    public List<MenuDTO> getRestaurantMenu(Long restaurantId) {
+        return restaurantMapper.findMenuByRestaurantId(restaurantId);
+    }
+
+    public List<ReviewDTO> getRestaurantReviews(Long restaurantId) {
+        return restaurantMapper.findReviewsByRestaurantId(restaurantId);
     }
 }
