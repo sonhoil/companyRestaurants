@@ -99,6 +99,18 @@
 		    <version>3.0.3</version>
 		</dependency>
 	    
+	    <!-- Spring Security 의존성 추가 -->
+	    <dependency>
+	        <groupId>org.springframework.boot</groupId>
+	        <artifactId>spring-boot-starter-security</artifactId>
+	    </dependency>
+
+	    <!-- JWT 사용 시 추가 의존성 -->
+	    <dependency>
+	        <groupId>io.jsonwebtoken</groupId>
+	        <artifactId>jjwt</artifactId>
+	        <version>0.9.1</version>
+	    </dependency>
 	</dependencies>
 
 	<build>
