@@ -1,8 +1,8 @@
 // src/components/UserProfilePage.js
 import React, { useEffect, useState } from 'react';
-import { useLikedRestaurants } from '../context/LikedRestaurantsContext'; // 좋아요 데이터
+import { useLikedRestaurants } from '../context/LikedRestaurantsContext';
 import Footer from '../components/Footer';
-import axios from 'axios';
+import { fetchUserProfile, fetchReviewCount, verifyEmail } from '../services/userService';
 
 const UserProfilePage = () => {
     const [userData, setUserData] = useState({
@@ -14,55 +14,55 @@ const UserProfilePage = () => {
     const { likedRestaurants } = useLikedRestaurants();
 
     useEffect(() => {
-        fetchUserData();
-        fetchReviewCount();
+        loadUserData();
+        loadReviewCount();
     }, []);
 
-    const fetchUserData = async () => {
+    const loadUserData = async () => {
         try {
-            const response = await axios.get('/api/user-profile');
+            const response = await fetchUserProfile();
             setUserData(response.data);
         } catch (error) {
-            console.error("Failed to fetch user data:", error);
+            console.error("사용자 데이터를 가져오는 데 실패했습니다:", error);
         }
     };
 
-    const fetchReviewCount = async () => {
+    const loadReviewCount = async () => {
         try {
-            const response = await axios.get('/api/user-reviews/count');
+            const response = await fetchReviewCount();
             setReviewCount(response.data.count);
         } catch (error) {
-            console.error("Failed to fetch review count:", error);
+            console.error("리뷰 수를 가져오는 데 실패했습니다:", error);
         }
     };
 
     const handleVerifyEmail = async () => {
         try {
-            await axios.post('/api/user/verify-email');
-            alert('Verification email sent! Please check your inbox.');
+            await verifyEmail();
+            alert('인증 이메일이 전송되었습니다! 받은 편지함을 확인해주세요.');
         } catch (error) {
-            console.error("Failed to send verification email:", error);
+            console.error("이메일 인증을 전송하는 데 실패했습니다:", error);
         }
     };
 
     return (
         <div className="user-profile-container">
-            <h2>User Profile</h2>
+            <h2>사용자 프로필</h2>
             <div className="user-info">
-                <p><strong>Nickname:</strong> {userData.nickname}</p>
-                <p><strong>Email:</strong> {userData.email}</p>
+                <p><strong>닉네임:</strong> {userData.nickname}</p>
+                <p><strong>이메일:</strong> {userData.email}</p>
                 {userData.isEmailVerified ? (
-                    <p className="verified">Email Verified</p>
+                    <p className="verified">이메일 인증 완료</p>
                 ) : (
                     <button onClick={handleVerifyEmail} className="verify-button">
-                        Verify Email
+                        이메일 인증
                     </button>
                 )}
             </div>
             <div className="user-stats">
-                <h3>Usage Statistics</h3>
-                <p><strong>Liked Restaurants:</strong> {likedRestaurants.length}</p>
-                <p><strong>Reviews:</strong> {reviewCount}</p>
+                <h3>사용 통계</h3>
+                <p><strong>좋아요한 식당:</strong> {likedRestaurants.length}</p>
+                <p><strong>리뷰:</strong> {reviewCount}</p>
             </div>
             <Footer />
         </div>

@@ -10,6 +10,7 @@ import UserProfilePage from './pages/UserProfilePage';
 import WriteReviewPage from './pages/WriteReviewPage';
 import SignupPage from './pages/SignupPage';
 import LoginPage from './pages/LoginPage';
+import RegisterCafeteriaPage from './pages/RegisterCafeteriaPage';
 import { LikedRestaurantsProvider } from './context/LikedRestaurantsContext';
 
 function App() {
@@ -36,6 +37,11 @@ function App() {
           <Route path="/write-review" element={
             <PrivateRoute>
               <WriteReviewPage />
+            </PrivateRoute>
+          } />
+          <Route path="/register-cafeteria" element={
+            <PrivateRoute>
+              <RegisterCafeteriaPage />
             </PrivateRoute>
           } />
           <Route path="/signup" element={<SignupPage />} />
