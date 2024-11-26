@@ -5,10 +5,20 @@ import lombok.Data;
 @Data
 public class ReviewDTO {
     private Long id;
-    private String author;
+    private Long restaurantId;
+    private Long userId;
     private int rating;
     private String comment;
-    private String photoUrl;
+    private String imageUrl;
+    private String createdAt;
 
     // Getters and Setters
+
+    public Long getRestaurantId() {
+        return restaurantId;
+    }
+
+    public void setRestaurantId(Long restaurantId) {
+        this.restaurantId = restaurantId;
+    }
 } 

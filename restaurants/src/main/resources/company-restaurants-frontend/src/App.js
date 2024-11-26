@@ -46,6 +46,8 @@ function App() {
           } />
           <Route path="/signup" element={<SignupPage />} />
           <Route path="/login" element={<LoginPage />} />
+          <Route path="/write-review/:restaurantId" element={<WriteReviewPage />} />
+          <Route path="/search-results" element={<SearchResultsPage />} />
           {/* 추가적인 경로 설정 가능 */}
         </Routes>
       </Router>

@@ -26,4 +26,8 @@ public interface RestaurantMapper {
     List<MenuDTO> findMenuByRestaurantId(@Param("restaurantId") Long restaurantId);
 
     List<ReviewDTO> findReviewsByRestaurantId(@Param("restaurantId") Long restaurantId);
+
+    void insertRestaurantReview(ReviewDTO reviewDTO);
+
+    RestaurantDTO getRestaurantById(Long restaurantId);
 }

@@ -56,4 +56,14 @@ public class RestaurantService {
     public List<ReviewDTO> getRestaurantReviews(Long restaurantId) {
         return restaurantMapper.findReviewsByRestaurantId(restaurantId);
     }
+
+    public void addRestaurantReview(Long restaurantId, ReviewDTO reviewDTO) {
+        RestaurantDTO restaurant = restaurantMapper.getRestaurantById(restaurantId);
+        if (restaurant == null) {
+            throw new IllegalArgumentException("존재하지 않는 식당입니다.");
+        }
+        // 추가적인 검증 로직이 필요하다면 여기에 작성
+        reviewDTO.setRestaurantId(restaurantId);
+        restaurantMapper.insertRestaurantReview(reviewDTO);
+    }
 }

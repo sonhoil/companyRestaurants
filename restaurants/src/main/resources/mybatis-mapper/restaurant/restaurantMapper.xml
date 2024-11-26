@@ -55,4 +55,9 @@
         WHERE restaurant_id = #{restaurantId} AND menu_item = #{menuItem}
     </select>
 
+    <insert id="insertRestaurantReview" parameterType="com.company.restaurants.restaurant.domain.ReviewDTO">
+        INSERT INTO restaurant_reviews (restaurant_id, user_id, rating, comment, created_at)
+        VALUES (#{restaurantId}, #{userId}, #{rating}, #{comment}, CURRENT_TIMESTAMP)
+    </insert>
+
 </mapper>

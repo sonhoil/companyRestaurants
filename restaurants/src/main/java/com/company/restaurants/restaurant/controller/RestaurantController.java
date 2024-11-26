@@ -57,4 +57,15 @@ public class RestaurantController {
         List<ReviewDTO> reviews = restaurantService.getRestaurantReviews(id);
         return ResponseEntity.ok(reviews);
     }
+
+    @PostMapping("/{restaurantId}/reviews")
+    public ResponseEntity<String> addRestaurantReview(@PathVariable Long restaurantId,
+                                                     @RequestBody ReviewDTO reviewDTO) {
+        try {
+            restaurantService.addRestaurantReview(restaurantId, reviewDTO);
+            return ResponseEntity.ok("리뷰가 성공적으로 추가되었습니다.");
+        } catch (IllegalArgumentException e) {
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
+    }
 }

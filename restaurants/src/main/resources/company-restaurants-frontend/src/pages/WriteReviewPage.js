@@ -1,51 +1,69 @@
 // src/components/WriteReviewPage.js
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
+import axios from 'axios';
 
 const WriteReviewPage = () => {
+    const { restaurantId } = useParams();
     const [rating, setRating] = useState(0);
     const [comment, setComment] = useState('');
     const [photo, setPhoto] = useState(null);
     const navigate = useNavigate();
 
-    const restaurantName = 'Restaurant Name'; // 예시 이름, 실제 데이터와 연결 시 해당 값 대체
-
     const handleRatingClick = (value) => {
         setRating(value);
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log({ rating, comment, photo });
-        navigate(-1); // 리뷰 제출 후 이전 페이지로 이동
+        try {
+            const formData = new FormData();
+            formData.append('userId', /* 현재 로그인된 사용자 ID */);
+            formData.append('rating', rating);
+            formData.append('comment', comment);
+            if (photo) {
+                formData.append('imageUrl', photo);
+            }
+
+            await axios.post(`/api/restaurant/${restaurantId}/reviews`, formData, {
+                headers: {
+                    'Content-Type': 'multipart/form-data',
+                },
+            });
+
+            alert('리뷰가 성공적으로 등록되었습니다.');
+            navigate(-1);
+        } catch (error) {
+            console.error(error);
+            alert('리뷰 등록에 실패했습니다.');
+        }
     };
 
     const handlePhotoChange = (e) => {
         if (e.target.files[0]) {
-            setPhoto(URL.createObjectURL(e.target.files[0]));
+            setPhoto(e.target.files[0]);
         }
     };
 
     return (
         <div className="write-review-container">
-            <h2>{restaurantName}</h2>
+            <h2>리뷰 작성하기</h2>
             <form onSubmit={handleSubmit} className="write-review-form">
                 <label>
-                    Rating:
+                    평점:
                     <div className="star-rating">
                         {[...Array(5)].map((_, index) => (
                             <span key={index}>
                                 <i
-                                    className={`fas fa-star ${rating >= index + 1 ? 'full' : rating >= index + 0.5 ? 'half' : 'empty'}`}
+                                    className={`fas fa-star ${rating >= index + 1 ? 'full' : 'empty'}`}
                                     onClick={() => handleRatingClick(index + 1)}
-                                    onMouseEnter={() => handleRatingClick(index + 1)}
                                 ></i>
                             </span>
                         ))}
                     </div>
                 </label>
                 <label>
-                    Comment:
+                    댓글:
                     <textarea
                         value={comment}
                         onChange={(e) => setComment(e.target.value)}
@@ -53,11 +71,11 @@ const WriteReviewPage = () => {
                     ></textarea>
                 </label>
                 <label>
-                    Photo:
+                    사진 업로드:
                     <input type="file" accept="image/*" onChange={handlePhotoChange} />
-                    {photo && <img src={photo} alt="Review" className="review-photo-preview" />}
+                    {photo && <img src={URL.createObjectURL(photo)} alt="리뷰 사진" className="review-photo-preview" />}
                 </label>
-                <button type="submit" className="submit-review-button">Submit Review</button>
+                <button type="submit" className="submit-review-button">리뷰 제출</button>
             </form>
         </div>
     );
